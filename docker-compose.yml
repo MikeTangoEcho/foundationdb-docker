@@ -1,0 +1,13 @@
+version: '3'
+services:
+  foundationdb:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    environment:
+    - DOCKER_COMPOSE_SCALING=1
+    - CONFIGURE_DATABASE=single memory
+#    - PRIVATE_IP
+#    - PUBLIC_IP
+#    - COORDINATOR_IP
+#    - COORDINATOR_PORT / beware of the exposed port
