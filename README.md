@@ -15,6 +15,17 @@ wget https://www.foundationdb.org/downloads/6.0.18/ubuntu/installers/foundationd
 wget https://www.foundationdb.org/downloads/6.0.18/ubuntu/installers/foundationdb-server_6.0.18-1_amd64.deb
 ```
 
+### Environment variables
+
+| Name | Description | Default |
+| --- | --- | --- |
+| PRIVATE_IP | Listen Address of the foundationdb | Default: `hostname -i` aka container ip |
+| PUBLIC_IP | Public address of the foundationdb  | Default: `PRIVATE_IP` |
+| COORDINATOR_IP | First coordinator of foundationdb cluster. Stored in `fdb.cluster`  | Default: `PRIVATE_IP` |
+| COORDINATOR_PORT | Port of the coordinator  | Default: `4500`   |
+| DOCKER_COMPOSE_SCALING | Flag the use of docker-compose scaling. Prevent erasing the `fdb.cluster` file created by the first node and c re-configuration of the database  | Default: `""` |
+| CONFIGURE_DATABASE | Database to be created 10sec after the start of the foundationdb container. Possible values are `single memory`, `double memory` ... | Default: "" |
+
 ### Docker
 
 #### Build
