@@ -80,6 +80,20 @@ Backup and DR:
 Client time: 05/21/19 13:17:49
 ```
 
+#### Run and Expose to public
+
+On the server with IP `192.168.1.42`
+```console
+$ docker run --rm -d --name foundationdb --env PUBLIC_IP=192.168.1.42 --env CONFIGURE_DATABASE="single memory" -p 4500:4500 foundation:anytagyouwant
+```
+
+On the client according on how you access the cluster
+```console
+$ echo "docker:docker@192.168.1.42:4500" > /etc/foundationdb/fdb.cluster
+$ fdbcli --exec status
+```
+ 
+
 ### Docker Compose
 
 The following commands do
